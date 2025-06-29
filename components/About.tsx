@@ -118,7 +118,7 @@ export const About = () => {
           {/* Image */}
           <div className="flex-shrink-0 w-64 h-64 md:w-72 md:h-72 rounded-full overflow-hidden border border-gray-200 shadow-lg mx-auto md:mx-0">
             <Image
-              src="/public/images/allen.jpg"
+              src="/public/images/allen.JPG"
               alt="Allen Manoj"
               width={340}
               height={340}
