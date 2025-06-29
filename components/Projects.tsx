@@ -3,11 +3,11 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaGithub, FaTimes } from "react-icons/fa";
-import { projects, Project } from "@/data/projects";
+import { projects, type Project } from "@/data/projects";
 
 export const Projects = () => {
   const [selected, setSelected] = useState<Project | null>(null);
-
+  
   return (
     <section
       id="projects"

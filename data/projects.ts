@@ -1,5 +1,11 @@
-// data/projects.ts
-export const projects = [
+export type Project = {
+  title: string;
+  description: string;
+  github?: string;
+  tech: string[];
+};
+
+export const projects: Project[] = [
   {
     title: "Histopathology Image Classification",
     description:
