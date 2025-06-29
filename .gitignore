@@ -39,3 +39,18 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# IDE / editor folders
+.vscode/
+.idea/
+
+# build output
+dist/
+
+# local environment
+*.local
+
+# lockfiles you don’t use
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
