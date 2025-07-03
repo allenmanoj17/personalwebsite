@@ -221,9 +221,7 @@ export const Hero = () => {
         </p>
 
         <p className="text-sm sm:text-base md:text-lg text-gray-500 mb-3 max-w-xl mx-auto md:mx-0">
-          I build machine learning models, craft neural networks that think,
-          and design intelligent dashboards that transform data into insight
-          and action.
+          I build machine learning models, craft neural networks that think, and design intelligent dashboards that transform data into insight and action.
         </p>
 
         <div className="flex flex-wrap justify-center md:justify-start gap-4 mb-4 mt-4">
