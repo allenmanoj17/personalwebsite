@@ -4,10 +4,13 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaGithub, FaTimes } from "react-icons/fa";
 import { projects, type Project } from "@/data/projects";
+import Link from "next/link";
 
 export const Projects = () => {
   const [selected, setSelected] = useState<Project | null>(null);
-  
+
+  const featuredProjects = projects.filter((project) => !project.archived);
+
   return (
     <section
       id="projects"
@@ -26,7 +29,7 @@ export const Projects = () => {
 
         {/* Project Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-          {projects.map((project, i) => (
+          {featuredProjects.map((project, i) => (
             <motion.div
               key={project.title}
               initial={{ opacity: 0, y: 50 }}
@@ -50,14 +53,13 @@ export const Projects = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={(e) => e.stopPropagation()}
-                    className="text-gray-400 hover:text-gray-900 transition"
+                    className="text-gray-400 hover:text-indigo-600 transition"
                   >
                     <FaGithub size={20} />
                   </a>
                 )}
               </div>
 
-              {/* One-line description */}
               <p className="text-gray-600 text-sm mb-4 line-clamp-1">
                 {project.description}
               </p>
@@ -75,9 +77,19 @@ export const Projects = () => {
             </motion.div>
           ))}
         </div>
+
+        {/* View More Button */}
+        <div className="text-center mt-12">
+          <Link
+            href="/archived-projects"
+            className="inline-block px-6 py-3 bg-gray-800 text-white rounded-full hover:bg-gray-700 transition"
+          >
+            View Archived Projects →
+          </Link>
+        </div>
       </div>
 
-      {/* Modal */}
+      {/* Modal for selected project */}
       <AnimatePresence>
         {selected && (
           <>
@@ -142,3 +154,5 @@ export const Projects = () => {
     </section>
   );
 };
+
+export default Projects;

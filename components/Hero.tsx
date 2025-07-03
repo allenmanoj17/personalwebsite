@@ -38,10 +38,8 @@ export const Hero = () => {
     );
     camera.position.z = 6;
 
-    // Use a single muted indigo color for neurons
     const neuronColor = new THREE.Color("#6366F1");
 
-    // Create neuron spheres
     const createNeuron = (pos: THREE.Vector3, color: THREE.Color) => {
       const geometry = new THREE.SphereGeometry(0.15, 16, 16);
       const material = new THREE.MeshBasicMaterial({
@@ -55,15 +53,12 @@ export const Hero = () => {
       return sphere;
     };
 
-    // Define layer positions
     const layersX = [-2, 0, 2, 4];
-
-    // Add neurons
     const neurons: THREE.Mesh[] = [];
     const connections: { start: THREE.Vector3; end: THREE.Vector3 }[] = [];
 
     layersX.forEach((x, i) => {
-      const numNeurons = i === 1 ? 6 : (i === 3 ? 2 : 4);
+      const numNeurons = i === 1 ? 6 : i === 3 ? 2 : 4;
       for (let j = 0; j < numNeurons; j++) {
         const y = j * 0.8 - (numNeurons * 0.8) / 2;
         const neuron = createNeuron(
@@ -74,7 +69,6 @@ export const Hero = () => {
       }
     });
 
-    // Connect layers
     for (let i = 0; i < layersX.length - 1; i++) {
       const layerA = neurons.filter((n) => n.position.x === layersX[i]);
       const layerB = neurons.filter((n) => n.position.x === layersX[i + 1]);
@@ -84,7 +78,7 @@ export const Hero = () => {
           const points = [a.position.clone(), b.position.clone()];
           const geometry = new THREE.BufferGeometry().setFromPoints(points);
           const material = new THREE.LineBasicMaterial({
-            color: "#818CF8", // subtle muted indigo
+            color: "#818CF8",
             transparent: true,
             opacity: 0.4,
           });
@@ -98,7 +92,6 @@ export const Hero = () => {
       });
     }
 
-    // Create particles flowing along connections
     const signals: {
       mesh: THREE.Mesh;
       start: THREE.Vector3;
@@ -110,7 +103,7 @@ export const Hero = () => {
     connections.forEach((conn) => {
       const geometry = new THREE.SphereGeometry(0.03, 8, 8);
       const material = new THREE.MeshBasicMaterial({
-        color: "#818CF8", // subtle muted indigo
+        color: "#818CF8",
         transparent: true,
         opacity: 0.8,
       });
@@ -131,13 +124,11 @@ export const Hero = () => {
       requestAnimationFrame(animate);
       time += 0.02;
 
-      // Pulse neurons
       neurons.forEach((n) => {
         const scale = 1 + 0.3 * Math.sin(time * 2 + n.position.y);
         n.scale.set(scale, scale, scale);
       });
 
-      // Move signal particles along edges
       signals.forEach((signal) => {
         signal.progress += signal.speed * 0.01;
         if (signal.progress > 1) signal.progress = 0;
@@ -174,7 +165,7 @@ export const Hero = () => {
   }, []);
 
   return (
-    <section className="relative min-h-screen flex flex-col md:flex-row items-center justify-center md:justify-between px-4 md:px-16 py-20 md:py-32 overflow-hidden bg-white">
+    <section className="relative min-h-screen flex flex-col md:flex-row items-center justify-center gap-12 px-8 md:px-24 py-20 md:py-32 bg-white">
       {/* Background grid */}
       <svg
         className="absolute inset-0 w-full h-full opacity-10"
@@ -211,21 +202,24 @@ export const Hero = () => {
 
       {/* Left content */}
       <motion.div
-        className="max-w-xl w-full text-center md:text-left z-10 md:pr-12"
+        className="max-w-md w-full text-center md:text-left z-10 md:flex-1"
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
       >
-        <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#111827] mb-4 md:mb-6 leading-tight">
-          Hey, I’m Allen Manoj
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-4 leading-tight">
+          <span className="text-[#111827]">Hey, I am </span>
+          <span className="text-[#6366F1] font-extrabold">Allen Manoj</span>
         </h1>
 
-        <p className="text-[#374151] text-base sm:text-lg md:text-xl mb-4 md:mb-6">
+        <p className="text-[#374151] text-base sm:text-lg md:text-xl mb-4">
           <Typewriter
             words={[
-              "Designing with data.",
-              "Turning patterns into insights.",
-              "Inform. Influence. Inspire.",
+              "Transforming Data into Impact",
+              "Building Smart Dashboards that Drive Decisions",
+              "Innovating with AI & Deep Learning",
+              "Engineering Neural Networks that Think",
+              "Turning Numbers into Narratives",
             ]}
             loop
             cursor
@@ -236,18 +230,23 @@ export const Hero = () => {
           />
         </p>
 
-        <p className="text-gray-500 text-sm sm:text-base md:text-lg mb-8 md:mb-10 max-w-md mx-auto md:mx-0">
-          I help data do more than inform — I help it influence, persuade, and drive decisions.
+        <p className="text-gray-500 text-sm sm:text-base md:text-lg mb-4 max-w-lg mx-auto md:mx-0">
+          I’m a data scientist specializing in AI and neural networks, creating models and intelligent dashboards that turn complex data into practical solutions and compelling narratives.
         </p>
-
-        <div className="flex justify-center md:justify-start flex-wrap gap-4 mb-8 md:mb-10">
+        <a
+          href="/projects"
+          className="inline-block px-6 py-6 sm:px-8 sm:py-3 bg-indigo-600 text-white text-sm sm:text-base font-semibold rounded-full hover:bg-indigo-700 transition duration-300 shadow-lg"
+        >
+          Explore My Work →
+        </a>
+        <div className="flex justify-center md:justify-start flex-wrap gap-4 mt-4">
           {[
-            { href: "https://github.com/allenmanoj", icon: <FaGithub /> },
-            { href: "https://www.linkedin.com/in/allenmanoj", icon: <FaLinkedin /> },
-            { href: "https://x.com/allenmanoj", icon: <SiX /> },
-            { href: "https://medium.com/@allenmanoj", icon: <FaMedium /> },
+            { href: "https://github.com/allenmanoj17", icon: <FaGithub /> },
+            { href: "https://www.linkedin.com/in/allenmanoj/", icon: <FaLinkedin /> },
+            { href: "https://x.com/allenmanoj17", icon: <SiX /> },
+            { href: "https://allenmanoj.medium.com/", icon: <FaMedium /> },
             { href: "https://www.youtube.com/@allenmanoj", icon: <FaYoutube /> },
-            { href: "mailto:allenmanoj.work@gmail.com", icon: <FaEnvelope /> },
+            { href: "mailto:allenmanoj17@gmail.com", icon: <FaEnvelope /> },
           ].map((item, i) => (
             <a
               key={i}
@@ -261,17 +260,12 @@ export const Hero = () => {
           ))}
         </div>
 
-        <a
-          href="#contact"
-          className="inline-block px-6 py-3 sm:px-8 sm:py-3 bg-indigo-600 text-white text-sm sm:text-base font-semibold rounded-full hover:bg-indigo-700 transition duration-300 shadow-lg"
-        >
-          Let’s Collaborate →
-        </a>
+        
       </motion.div>
 
       {/* Right neural network canvas */}
-      <div className="hidden md:block w-full h-[600px] relative z-10">
-        <canvas ref={canvasRef} className="w-full h-full" />
+      <div className="hidden md:flex md:flex-1 justify-center">
+        <canvas ref={canvasRef} className="w-[550px] h-[550px]" />
       </div>
     </section>
   );

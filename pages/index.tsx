@@ -7,7 +7,7 @@ import { Hero } from "../components/Hero";
 import { About } from "../components/About";
 import Experience from "../components/Experience";
 import { Publications } from "../components/Publications";
-import { Projects } from "../components/Projects";
+import Projects from "@/components/Projects";
 import { Achievements } from "../components/Achievements";
 import { BlogPreview } from "../components/BlogPreview";
 import { Contact } from "../components/Contact";
