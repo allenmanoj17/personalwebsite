@@ -6,26 +6,51 @@ export interface ExperienceEntry {
   description: string[];
   type: "experience" | "leadership" | "volunteering";
   skills?: string[];
-  current?: boolean; // added current flag
 }
 
 export const experienceData: ExperienceEntry[] = [
   {
-    title: "ASSOCIATE PRODUCT MANAGER AND DATA INTERN",
+    title: "Career Support Leader Intern [Data Team]",
+    role: "Data Intern",
+    period: "April 2025 – Present",
+    organization: "Careers Centre, The University of Sydney",
+    description: [
+      "Support internal reporting by cleaning and analysing student engagement metrics using Excel, Python and Power BI to inform service improvements.",
+      "Deliver front-line support and guide students to tailored career resources and online tools. Coordinate logistics for information sessions and workshops, setup."
+    ],
+    skills: ["Excel", "Python", "Power BI", "Data Analysis", "Communication"],
+    type: "experience"
+  },
+  {
+    title: "Data Consultant Intern",
+    role: "Data Consultant Intern",
+    period: "June 2024 – July 2024",
+    organization: "EDU Talent",
+    description: [
+      "Analyzed student data on commencement, completion, and attrition across universities, providing insights to improve retention strategies for high-dropout institutions.",
+      "Led teacher attrition analysis, identifying retention factors and recommending strategies to enhance workforce stability.",
+      "Evaluated market expansion, proposing strategies to address regional disparities and grow presence in underserved areas using advanced tech and partnerships."
+    ],
+    skills: ["Data Analysis", "Retention Strategies", "Market Research", "Reporting"],
+    type: "experience"
+  },
+  {
+    title: "Associate Product Manager and Data Intern",
     role: "Product & Data",
     period: "Feb 2023 - May 2023",
-    organization: "Bhumi",
+    organization: "Qwk, the Convenience App",
     description: [
       "Managed cross-functional collaboration between engineering and design teams to ensure the timely completion of tasks and deliverables for the integration of new features into the application.",
       "Effectively managed relationships with external organizations as the primary point of contact, facilitating the integration of their services. [Industry: Finance, Quick-Commerce]",
-      "Utilized Selenium to scrape data from various legal sources efficiently. Performed data cleaning and analysis using Python/MS Excel, extracting valuable insights to support business decision-making."
+      "Utilized Selenium to scrape data from various legal sources efficiently. Performed data cleaning and analysis using Python/MS Excel, extracting valuable insights to support business decision-making.",
+      "Location: Chennai, Tamil Nadu, India · On-site",
+      "Duration: Feb 2023 - May 2023 · 4 months"
     ],
     skills: ["Product Management", "Data Analysis", "Selenium", "Python", "Excel"],
-    type: "experience",
-    current: false
+    type: "experience"
   },
   {
-    title: "DATA ANALYST INTERN",
+    title: "Data Analyst Intern",
     role: "Data Analysis",
     period: "May 2022 - Nov 2022",
     organization: "Bhumi",
@@ -34,24 +59,10 @@ export const experienceData: ExperienceEntry[] = [
       "Implemented data visualization methodologies to fulfil the client’s expectations and to be able to adjust specifics during the design process."
     ],
     skills: ["Data Extraction", "Data Visualization", "Decision Making"],
-    type: "experience",
-    current: false
+    type: "experience"
   },
   {
-    title: "DATA VISUALIZATION INTERN",
-    role: "Data Visualization",
-    period: "September 2022",
-    organization: "Illinois Institute of Technology, Globalshala",
-    description: [
-      "Analyzed data from an advertisement campaign and produced various dashboards that provided extensive information about all campaigns of the organisation.",
-      "Dashboard insights were able to evaluate each campaign and give successful marketing ideologies."
-    ],
-    skills: ["Data Analysis", "Dashboards", "Marketing"],
-    type: "experience",
-    current: false
-  },
-  {
-    title: "DATA SCIENTIST INTERN",
+    title: "Data Scientist Intern",
     role: "Data Science",
     period: "November 2021 - December 2021",
     organization: "Exposys Data Labs",
@@ -60,11 +71,10 @@ export const experienceData: ExperienceEntry[] = [
       "Developed a suitable solution for marketing."
     ],
     skills: ["K-Means Clustering", "Customer Segmentation", "Data Science"],
-    type: "experience",
-    current: false
+    type: "experience"
   },
   {
-    title: "WEBSITE DEVELOPMENT INTERN",
+    title: "Website Development Intern",
     role: "Web Development",
     period: "June 2021 - July 2021",
     organization: "Exotrix Learning",
@@ -74,11 +84,10 @@ export const experienceData: ExperienceEntry[] = [
       "Website visits increased by around 72% due to SEO keyword strategy."
     ],
     skills: ["HTML", "CSS", "JavaScript", "Bootstrap", "Tailwind", "SEO"],
-    type: "experience",
-    current: false
+    type: "experience"
   },
   {
-    title: "CODING INSTRUCTOR",
+    title: "Coding Instructor",
     role: "Instructor",
     period: "January 2021 - March 2021",
     organization: "Hatch School of Code",
@@ -87,8 +96,82 @@ export const experienceData: ExperienceEntry[] = [
       "Students were able to create static and dynamic websites by the end of the cohort."
     ],
     skills: ["HTML", "CSS", "JavaScript", "Teaching"],
-    type: "experience",
-    current: false
+    type: "experience"
+  },
+
+  
+  {
+    title: "Mentor",
+    role: "Mentor",
+    period: "June 2025 - July 2025",
+    organization: "Practera / Study NSW",
+    description: [
+      "Mentored 5 international students as part of a Practera program under Study NSW, guiding them through projects and professional development activities."
+    ],
+    skills: ["Mentoring", "Project Guidance", "Cross-Cultural Communication"],
+    type: "leadership"
+  },
+  {
+    title: "Co-Lead - Data Collection",
+    role: "Team Co-Lead",
+    period: "January 2023",
+    organization: "Omdena Nellore Chapter",
+    description: [
+      "Worked on the project 'Understanding the Disconnect between Skills and Jobs in India.'",
+      "Gathered and analyzed data to identify gaps between job requirements and available skills.",
+      "Collaborated with a team to organize findings into reports, making the information easier to understand and use."
+    ],
+    skills: ["Leadership", "Data Analysis", "Reporting", "Collaboration"],
+    type: "leadership"
+  },
+  {
+    title: "Vice President",
+    role: "Lead Coordinator",
+    period: "October 2022 - June 2023",
+    organization: "Association of Computer Engineers",
+    description: [
+      "Led 50-member team across Design, Web Dev, Marketing, Content, Accounts.",
+      "Organized flagship Interrupt Symposium and 5+ events.",
+      "Volunteered at hackathons and solved real-time issues."
+    ],
+    skills: ["Leadership", "Event Planning", "Team Management"],
+    type: "leadership"
+  },
+  {
+    title: "Member - Data",
+    role: "Volunteer",
+    period: "September 2020 - June 2023",
+    organization: "Engineers Without Borders",
+    description: [
+      "Website and data team contributor, blog writer."
+    ],
+    skills: ["Writing", "Tech for Good", "Teamwork"],
+    type: "leadership"
+  },
+  {
+    title: "Microsoft Learn Student Ambassador",
+    role: "Ambassador",
+    period: "January 2021 - May 2023",
+    organization: "Microsoft",
+    description: [
+      "Represented Microsoft Learn, promoted student education initiatives."
+    ],
+    skills: ["Advocacy", "Learning", "Tech Outreach"],
+    type: "leadership"
+  },
+  
+  {
+    title: "Social Media Manager",
+    role: "SMM",
+    period: "May 2021 - Jan 2023",
+    organization: "Elixir Coding",
+    description: [
+      "Managed content creation for 500+ followers on Instagram.",
+      "Introduced a character named DOM in reels.",
+      "Researched, designed, and evaluated post performance."
+    ],
+    skills: ["Design", "Social Media", "Strategy"],
+    type: "leadership"
   },
   {
     title: "Co-Founder",
@@ -102,50 +185,22 @@ export const experienceData: ExperienceEntry[] = [
       "Created team task guidelines and assigned responsibilities."
     ],
     skills: ["Leadership", "Team Management", "Community Building"],
-    type: "leadership",
-    current: false
+    type: "leadership"
   },
   {
-    title: "Social Media Manager",
-    role: "SMM",
-    period: "May 2021 - Jan 2023",
-    organization: "Elixir Coding",
+    title: "Tech Head",
+    role: "Team Lead",
+    period: "March 2021 - March 2022",
+    organization: "FORum for Economic Studies by Engineers",
     description: [
-      "Managed content creation for 500+ followers on Instagram.",
-      "Introduced a character named DOM in reels.",
-      "Researched, designed, and evaluated post performance."
+      "Founded Coders' Forum to promote coding.",
+      "Led content, design, and dev for Mock Placement with 700+ attendees.",
+      "Built website using HTML, CSS, JavaScript."
     ],
-    skills: ["Design", "Social Media", "Strategy"],
-    type: "leadership",
-    current: false
+    skills: ["Technical Leadership", "Web Dev", "Community"],
+    type: "leadership"
   },
-  {
-    title: "Social Media Influencer",
-    role: "Creator",
-    period: "December 2018 - Jan 2023",
-    organization: "allenmanoj",
-    description: [
-      "Shared content on Mental Health and Psychology with 10K+ followers.",
-      "Focused on positivity, mindfulness, manifestation, and books."
-    ],
-    skills: ["Content Creation", "Mental Health", "Influence"],
-    type: "leadership",
-    current: true
-  },
-  {
-    title: "Vice President",
-    role: "Lead Coordinator",
-    period: "October 2022 - June 2023",
-    organization: "Association of Computer Engineers",
-    description: [
-      "Led 50-member team across Design, Web Dev, Marketing, Content, Accounts.",
-      "Organized flagship Interrupt Symposium and 5+ events.",
-      "Volunteered at hackathons and solved real-time issues."
-    ],
-    skills: ["Leadership", "Event Planning", "Team Management"],
-    type: "leadership",
-    current: false
-  },
+
   {
     title: "Executive Member",
     role: "Organizer",
@@ -156,108 +211,101 @@ export const experienceData: ExperienceEntry[] = [
       "Contributed to website development and design teams."
     ],
     skills: ["Event Management", "Design", "Web Development"],
-    type: "leadership",
-    current: false
+    type: "leadership"
   },
   {
-    title: "Tech Head",
-    role: "Team Lead",
-    period: "March 2021 - March 2022",
-    organization: "FORum for Economic Studies by Engineers",
-    description: [
-      "Led content, design, and dev for Mock Placement with 700+ attendees.",
-      "Built website using HTML, CSS, JavaScript.",
-      "Founded Coders' Forum to promote coding."
-    ],
-    skills: ["Technical Leadership", "Web Dev", "Community"],
-    type: "leadership",
-    current: false
-  },
-  {
-    title: "Tech Team Member - Developer",
+    title: "Member - Developer",
     role: "Developer",
     period: "August 2020 - March 2021",
     organization: "FORum for Economic Studies by Engineers",
     description: [
       "Developed club website and Mock Analysis Software using Python.",
-      "Designed event posters."
-    ],
-    skills: ["Python", "Design", "Web Development"],
-    type: "leadership",
-    current: false
-  },
-  {
-    title: "Member",
-    role: "Support",
-    period: "July 2020 - March 2021",
-    organization: "FORum for Economic Studies by Engineers",
-    description: [
+      "Designed event posters.",
       "Cold-called HRs, prepared aptitude tests, managed floor for mock interviews.",
       "Assisted in group discussions and logistics."
     ],
-    skills: ["Communication", "Operations", "Teamwork"],
-    type: "leadership",
-    current: false
+    skills: ["Python", "Design", "Web Development", "Operations"],
+    type: "leadership"
   },
+  
+
+
   {
-    title: "Microsoft Learn Student Ambassador",
-    role: "Ambassador",
-    period: "January 2021 - May 2023",
-    organization: "Microsoft",
-    description: [
-      "Represented Microsoft Learn, promoted student education initiatives."
-    ],
-    skills: ["Advocacy", "Learning", "Tech Outreach"],
-    type: "leadership",
-    current: false
-  },
-  {
-    title: "Member",
+    title: "Volunteer",
     role: "Volunteer",
-    period: "September 2020 - June 2023",
-    organization: "Engineers Without Borders",
+    period: "April 2024 - Present",
+    organization: "University of Sydney Union (USU)",
     description: [
-      "Website and data team contributor, blog writer."
+      "Volunteer support at events and activities organized by the University of Sydney Union."
     ],
-    skills: ["Writing", "Tech for Good", "Teamwork"],
-    type: "leadership",
-    current: false
+    skills: ["Event Support", "Communication", "Teamwork"],
+    type: "volunteering"
+  },
+
+  {
+    title: "Peer Mentor",
+    role: "Mentor",
+    period: "Semester II - 2024",
+    organization: "Faculty of Engineering, University of Sydney",
+    description: [
+      "Guided new engineering students through university life, providing academic and social support."
+    ],
+    skills: ["Mentoring", "Student Support", "Communication"],
+    type: "volunteering"
   },
   {
-    title: "Member",
+    title: "Retail Assistant Volunteer",
     role: "Volunteer",
-    period: "July 2021 - June 2023",
+    period: "April 2024 – August 2024",
+    organization: "Salvation Army",
+    description: [
+      "Assisted in retail operations including customer service and organizing merchandise."
+    ],
+    skills: ["Customer Service", "Retail Operations", "Teamwork"],
+    type: "volunteering"
+  },
+  {
+    title: "Help Desk Volunteer",
+    role: "Volunteer",
+    period: "March 2024 – July 2024",
+    organization: "Study NSW & Communiteer",
+    description: [
+      "Provided support to international students via help desk and information services."
+    ],
+    skills: ["Support Services", "Communication", "Problem Solving"],
+    type: "volunteering"
+  },
+  {
+    title: "Volunteer Member",
+    role: "Volunteer",
+    period: "August 2020 – June 2023",
     organization: "Youth Red Cross",
     description: [
-      "Attended workshops, promoted social causes among students."
+      "Attended workshops and promoted social causes among students."
     ],
     skills: ["Social Impact", "Awareness", "Support"],
-    type: "volunteering",
-    current: false
+    type: "volunteering"
   },
   {
     title: "Graphic Designer",
     role: "Designer",
-    period: "July 2020 - November 2020",
+    period: "July 2020 – Nov 2020",
     organization: "Scholarship Track",
     description: [
-      "Designed creatives and carousels with 80%+ engagement.",
-      "Managed social media feed across platforms."
+      "Designed creatives and carousels with high engagement, managed social media feed."
     ],
     skills: ["Graphic Design", "Engagement", "Branding"],
-    type: "volunteering",
-    current: false
+    type: "volunteering"
   },
   {
-    title: "Member",
+    title: "Volunteer",
     role: "Volunteer",
-    period: "September 2019 - December 2019",
+    period: "Sep 2019 – Jan 2020",
     organization: "LEO Club SVCE",
     description: [
-      "Led beach cleanup, raised awareness on public cleanliness."
+      "Led beach cleanup and raised awareness on public cleanliness."
     ],
     skills: ["Environment", "Teamwork", "Initiative"],
-    type: "volunteering",
-    current: false
+    type: "volunteering"
   }
-];
+];   
