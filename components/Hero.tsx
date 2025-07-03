@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import Link from 'next/link';
 import { FaGithub, FaLinkedin, FaEnvelope, FaMedium, FaYoutube } from "react-icons/fa";
 import { SiX } from "react-icons/si";
 import { motion } from "framer-motion";
@@ -246,7 +247,7 @@ export const Hero = () => {
           ))}
         </div>
 
-        <a
+        <Link
           href="/#about"
           className="inline-flex items-center justify-center gap-2 px-4 py-3 bg-[#6366F1] text-white font-semibold rounded-md shadow hover:bg-[#4F46E5] transition duration-300 text-base w-fit"
         >
@@ -261,7 +262,7 @@ export const Hero = () => {
           >
             <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
           </svg>
-        </a>
+        </Link>
       </motion.div>
 
       {/* Right neural network canvas */}

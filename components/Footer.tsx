@@ -20,19 +20,19 @@ export const Footer = () => {
       {/* Social Icons */}
       <div className="flex justify-center gap-5 mt-4">
         <FooterIcon
-          href="https://github.com/allenmanoj"
+          href="https://github.com/allenmanoj17"
           Icon={FaGithub}
         />
         <FooterIcon
-          href="https://www.linkedin.com/in/allenmanoj"
+          href="https://www.linkedin.com/in/allenmanoj/"
           Icon={FaLinkedin}
         />
         <FooterIcon
-          href="https://twitter.com/allenmanoj"
+          href="https://x.com/allenmanoj17"
           Icon={SiX}
         />
         <FooterIcon
-          href="https://medium.com/@allenmanoj"
+          href="https://allenmanoj.medium.com/"
           Icon={FaMedium}
         />
         <FooterIcon
@@ -40,7 +40,7 @@ export const Footer = () => {
           Icon={FaYoutube}
         />
         <FooterIcon
-          href="mailto:allenmanoj.work@gmail.com"
+          href="mailto:allenmanoj17@gmail.com"
           Icon={FaEnvelope}
         />
       </div>

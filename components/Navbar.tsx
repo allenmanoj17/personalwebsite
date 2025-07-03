@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useEffect, useState } from "react";
@@ -49,7 +48,7 @@ export const Navbar = () => {
             <li key={href}>
               <a
                 href={href}
-                className="text-sm text-gray-700 hover:text-blue-600 hover:underline underline-offset-4 font-medium transition-all"
+                className="text-base text-gray-700 hover:text-blue-600 hover:underline underline-offset-4 font-medium transition-all"
               >
                 {label}
               </a>
@@ -105,7 +104,7 @@ export const Navbar = () => {
               <a
                 href={href}
                 onClick={() => setMenuOpen(false)}
-                className="block text-base text-gray-800 hover:text-blue-600 font-medium transition-colors"
+                className="block text-lg text-gray-800 hover:text-blue-600 font-medium transition-colors"
               >
                 {label}
               </a>
