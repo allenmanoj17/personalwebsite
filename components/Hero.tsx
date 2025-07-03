@@ -1,17 +1,11 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { Typewriter } from "react-simple-typewriter";
-import {
-  FaGithub,
-  FaLinkedin,
-  FaEnvelope,
-  FaMedium,
-  FaYoutube,
-} from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaEnvelope, FaMedium, FaYoutube } from "react-icons/fa";
 import { SiX } from "react-icons/si";
 import { motion } from "framer-motion";
 import * as THREE from "three";
+import { Typewriter } from "react-simple-typewriter";
 
 export const Hero = () => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
@@ -61,10 +55,7 @@ export const Hero = () => {
       const numNeurons = i === 1 ? 6 : i === 3 ? 2 : 4;
       for (let j = 0; j < numNeurons; j++) {
         const y = j * 0.8 - (numNeurons * 0.8) / 2;
-        const neuron = createNeuron(
-          new THREE.Vector3(x, y, 0),
-          neuronColor
-        );
+        const neuron = createNeuron(new THREE.Vector3(x, y, 0), neuronColor);
         neurons.push(neuron);
       }
     });
@@ -165,7 +156,7 @@ export const Hero = () => {
   }, []);
 
   return (
-    <section className="relative min-h-screen flex flex-col md:flex-row items-center justify-center gap-12 px-8 md:px-24 py-20 md:py-32 bg-white">
+    <section className="relative min-h-screen flex flex-col md:flex-row items-center justify-between gap-12 px-8 md:px-24 py-12 md:py-20 bg-white overflow-hidden">
       {/* Background grid */}
       <svg
         className="absolute inset-0 w-full h-full opacity-10"
@@ -202,44 +193,39 @@ export const Hero = () => {
 
       {/* Left content */}
       <motion.div
-        className="max-w-md w-full text-center md:text-left z-10 md:flex-1"
+        className="max-w-2xl w-full text-center md:text-left z-10 md:flex-1 flex flex-col justify-center"
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
       >
-        <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-4 leading-tight">
-          <span className="text-[#111827]">Hey, I am </span>
-          <span className="text-[#6366F1] font-extrabold">Allen Manoj</span>
+        <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 leading-snug text-[#374151] whitespace-nowrap">
+          Hey, I’m <span className="text-[#6366F1] font-extrabold">Allen Manoj</span>
         </h1>
 
-        <p className="text-[#374151] text-base sm:text-lg md:text-xl mb-4">
+        <p className="text-sm sm:text-base md:text-lg font-medium mb-3 h-10 text-gray-700">
           <Typewriter
             words={[
-              "Transforming Data into Impact",
-              "Building Smart Dashboards that Drive Decisions",
-              "Innovating with AI & Deep Learning",
-              "Engineering Neural Networks that Think",
-              "Turning Numbers into Narratives",
+              "Innovating with AI & Deep Learning.",
+              "Building Neural Networks that Think.",
+              "Transforming Data into Impact.",
+              "Crafting Smart Dashboards."
             ]}
             loop
             cursor
             cursorStyle="|"
-            typeSpeed={60}
+            typeSpeed={50}
             deleteSpeed={30}
-            delaySpeed={2500}
+            delaySpeed={2000}
           />
         </p>
 
-        <p className="text-gray-500 text-sm sm:text-base md:text-lg mb-4 max-w-lg mx-auto md:mx-0">
-          I’m a data scientist specializing in AI and neural networks, creating models and intelligent dashboards that turn complex data into practical solutions and compelling narratives.
+        <p className="text-sm sm:text-base md:text-lg text-gray-500 mb-3 max-w-xl mx-auto md:mx-0">
+          I build machine learning models, craft neural networks that think,
+          and design intelligent dashboards that transform data into insight
+          and action.
         </p>
-        <a
-          href="/projects"
-          className="inline-block px-6 py-6 sm:px-8 sm:py-3 bg-indigo-600 text-white text-sm sm:text-base font-semibold rounded-full hover:bg-indigo-700 transition duration-300 shadow-lg"
-        >
-          Explore My Work →
-        </a>
-        <div className="flex justify-center md:justify-start flex-wrap gap-4 mt-4">
+
+        <div className="flex flex-wrap justify-center md:justify-start gap-4 mb-4 mt-4">
           {[
             { href: "https://github.com/allenmanoj17", icon: <FaGithub /> },
             { href: "https://www.linkedin.com/in/allenmanoj/", icon: <FaLinkedin /> },
@@ -253,19 +239,34 @@ export const Hero = () => {
               href={item.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-500 hover:text-indigo-600 transition transform hover:scale-110 duration-200"
+              className="text-gray-500 hover:text-indigo-600 transition duration-200 text-2xl hover:scale-110"
             >
-              <span className="text-xl sm:text-2xl">{item.icon}</span>
+              {item.icon}
             </a>
           ))}
         </div>
 
-        
+        <a
+          href="/#about"
+          className="inline-flex items-center justify-center gap-2 px-4 py-3 bg-[#6366F1] text-white font-semibold rounded-md shadow hover:bg-[#4F46E5] transition duration-300 text-base w-fit"
+        >
+          Know more about me
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth="1.5"
+            stroke="currentColor"
+            className="w-5 h-5"
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+          </svg>
+        </a>
       </motion.div>
 
       {/* Right neural network canvas */}
       <div className="hidden md:flex md:flex-1 justify-center">
-        <canvas ref={canvasRef} className="w-[550px] h-[550px]" />
+        <canvas ref={canvasRef} className="w-[600px] h-[600px]" />
       </div>
     </section>
   );

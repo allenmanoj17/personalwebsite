@@ -10,7 +10,26 @@ import {
   FaLightbulb,
 } from "react-icons/fa";
 
-const aboutParagraph = `I’m a data-driven problem solver who enjoys crafting end-to-end solutions—from analytics pipelines to intuitive visualizations. I love blending technical skill with clean, thoughtful design to transform data into decisions. Outside of coding, I’m passionate about visual storytelling, simplifying complexity, and helping teams communicate insights clearly. I believe data isn’t just numbers—it’s a language that can inform, influence, and inspire.`;
+// Split aboutParagraph into two parts and highlight important words
+const aboutParagraph1 = (
+  <>
+    I’m a{" "}
+    <span className="text-indigo-600 font-semibold">data-driven</span>{" "}
+    <span className="text-indigo-600 font-semibold">problem solver</span> who enjoys crafting end-to-end solutions from{" "}
+    <span className="text-indigo-600 font-semibold">analytics pipelines</span> to intuitive{" "}
+    <span className="text-indigo-600 font-semibold">visualizations</span>. I love blending{" "}
+    <span className="text-indigo-600 font-semibold">technical skill</span> with clean, thoughtful design to transform{" "}
+    <span className="text-indigo-600 font-semibold">data</span> into decisions.
+  </>
+);
+const aboutParagraph2 = (
+  <>
+    Outside of coding, I’m passionate about{" "}
+    <span className="text-indigo-600 font-semibold">visual storytelling</span>, simplifying complexity, and helping teams communicate{" "}
+    <span className="text-indigo-600 font-semibold">insights</span> clearly. I believe{" "}
+    <span className="text-indigo-600 font-semibold">data</span> isn’t just numbers, it’s a language that can inform, influence, and inspire.
+  </>
+);
 
 const coreCompetencies = [
   "Data Storytelling",
@@ -101,8 +120,8 @@ const education = [
 
 export const About = () => {
   return (
-    <section id="about" className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
-      <div className="max-w-6xl mx-auto space-y-16">
+    <section id="about" className="py-10 px-2 sm:px-4 lg:px-6 bg-white">
+      <div className="max-w-5xl mx-auto space-y-16">
         {/* Title */}
         <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 text-center">
           About Me
@@ -113,10 +132,10 @@ export const About = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="flex flex-col md:flex-row md:items-start gap-10 md:gap-16"
+          className="flex flex-col md:flex-row md:items-center md:justify-center gap-6 md:gap-10"
         >
           {/* Image */}
-          <div className="flex-shrink-0 w-64 h-64 md:w-72 md:h-72 rounded-full overflow-hidden border border-gray-200 shadow-lg mx-auto md:mx-0">
+          <div className="flex-shrink-0 w-64 h-64 md:w-72 md:h-72 rounded-full overflow-hidden border border-gray-200 shadow-lg mx-auto md:mx-0 md:-translate-x-6">
             <Image
               src="/images/allen.JPG"
               alt="Allen Manoj"
@@ -127,11 +146,13 @@ export const About = () => {
           </div>
 
           {/* Text */}
-          <div className="flex-1 space-y-4">
-            <p className="text-gray-700 text-base md:text-lg leading-relaxed">
-              {aboutParagraph}
+          <div className="flex-1 space-y-4 max-w-xl">
+            <p className="text-gray-700 text-sm md:text-base leading-relaxed text-justify">
+              {aboutParagraph1}
             </p>
-
+            <p className="text-gray-700 text-sm md:text-base leading-relaxed text-justify">
+              {aboutParagraph2}
+            </p>
             {/* Tags */}
             <div className="flex flex-wrap gap-2">
               {coreCompetencies.map((skill) => (

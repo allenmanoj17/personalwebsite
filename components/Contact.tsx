@@ -9,12 +9,12 @@ export const Contact = () => {
       <div className="max-w-4xl mx-auto">
         {/* Heading */}
         <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4">
-            Reach Out to Me 🤝
-          </h2>
-          <p className="text-gray-600 text-base md:text-lg max-w-2xl mx-auto">
-            I’d love to hear from you. Fill out the form and I’ll get back to you soon!
-          </p>
+        <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4">
+          Let’s Connect & Collaborate 🚀
+        </h2>
+        <p className="text-gray-600 text-base md:text-lg max-w-2xl mx-auto">
+          Whether you have a project idea, a question, or just want to chat tech, drop me a message and I'll get back to you!
+        </p>
         </div>
 
         {/* Contact Form */}

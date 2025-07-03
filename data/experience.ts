@@ -149,6 +149,19 @@ export const experienceData: ExperienceEntry[] = [
     type: "leadership"
   },
   {
+    title: "Treasurer",
+    role: "Treasurer",
+    period: "May 2022 - May 2023",
+    organization: "Youth Fellowship",
+    description: [
+      "Served as Treasurer for the fiscal year 2022-2023 at the Youth Fellowship.",
+      "Managed financial records, budgeting, and fund allocation for various events and community initiatives."
+    ],
+    skills: ["Financial Management", "Budgeting", "Record Keeping", "Leadership"],
+    type: "leadership"
+  },
+
+  {
     title: "Microsoft Learn Student Ambassador",
     role: "Ambassador",
     period: "January 2021 - May 2023",
