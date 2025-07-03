@@ -207,7 +207,7 @@ export const Hero = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
       >
-        <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold mb-4 leading-tight text-[#374151]">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 leading-tight text-[#374151]">
           Hey, I’m{" "}
           <span className="text-[#6366F1] font-extrabold">Allen Manoj</span>
         </h1>
