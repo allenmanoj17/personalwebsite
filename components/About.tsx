@@ -78,7 +78,6 @@ const skillGroups = [
       "Tableau",
       "Google Looker Studio",
       "Google Data Studio",
-      "Excel",
       "MS Excel",
     ],
   },
