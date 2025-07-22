@@ -22,12 +22,8 @@ export const Contact = () => {
           <iframe
             src="https://tally.so/embed/mYpqJn?alignLeft=1&hideTitle=1&transparentBackground=1"
             width="100%"
-            height="600"
-            frameBorder="0"
-            marginHeight={0}
-            marginWidth={0}
             title="Contact Form"
-            className="w-full h-[600px] rounded-xl"
+            className="w-full h-[500px] rounded-xl"
             allow="clipboard-write"
           ></iframe>
         </div>
