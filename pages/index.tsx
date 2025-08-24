@@ -18,30 +18,32 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Allen Manoj</title>
+        <title>Allen Manoj | Data Portfolio</title>
         <meta
           name="description"
-          content="Explore the portfolio of Allen Manoj, Data Scientist and Machine Learning Enthusiast. Discover projects, experience, publications, and achievements."
+          content="Explore Allen Manoj's portfolio showcasing dashboards, data analytics, projects, and business insights powered by Tableau, Power BI, and Machine Learning."
         />
         <meta
           name="keywords"
-          content="Allen Manoj, Data Scientist, Machine Learning, AI Engineer, Portfolio, Deep Learning, Projects"
+          content="Allen Manoj, Data Analytics, Dashboards, Tableau, Power BI, Data Science, Portfolio, Machine Learning, AI, Projects"
         />
         <meta name="author" content="Allen Manoj" />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://www.allenmanoj.com/" />
-        <meta property="og:title" content="Allen Manoj" />
+        <meta property="og:title" content="Allen Manoj | Data Portfolio" />
         <meta
           property="og:description"
-          content="Explore the portfolio of Allen Manoj, Data Scientist and Machine Learning Enthusiast. Discover projects, experience, publications, and achievements."
+          content="Explore Allen Manoj's portfolio showcasing dashboards, data analytics, projects, and business insights powered by Tableau, Power BI, and Machine Learning."
         />
-        <meta property="og:image" content="/images/og-preview.png" />
+        <meta property="og:image" content="https://www.allenmanoj.com/forPreview.png" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="Allen Manoj Portfolio" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Allen Manoj" />
-        <meta name="twitter:description" content="Explore Allen Manoj's portfolio showcasing projects, experience, publications, and achievements in AI and ML." />
-        <meta name="twitter:image" content="/images/og-preview.png" />
+        <meta name="twitter:title" content="Allen Manoj | Data Portfolio" />
+        <meta name="twitter:description" content="Explore Allen Manoj's portfolio showcasing dashboards, data analytics, projects, and business insights powered by Tableau, Power BI, and Machine Learning." />
+        <meta name="twitter:image" content="https://www.allenmanoj.com/forPreview.png" />
       </Head>
 
       <main className={inter.className}>
