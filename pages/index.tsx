@@ -18,7 +18,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Allen Manoj | Data Portfolio</title>
+        <title>Allen Manoj</title>
         <meta
           name="description"
           content="Explore Allen Manoj's portfolio showcasing dashboards, data analytics, projects, and business insights powered by Tableau, Power BI, and Machine Learning."
@@ -30,20 +30,18 @@ export default function Home() {
         <meta name="author" content="Allen Manoj" />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://www.allenmanoj.com/" />
-        <meta property="og:title" content="Allen Manoj | Data Portfolio" />
+        <meta property="og:title" content="Allen Manoj" />
         <meta
           property="og:description"
           content="Explore Allen Manoj's portfolio showcasing dashboards, data analytics, projects, and business insights powered by Tableau, Power BI, and Machine Learning."
         />
-        <meta property="og:image" content="https://www.allenmanoj.com/forPreview.png" />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="630" />
+        <meta property="og:image" content="/images/forPreview.png" />
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="Allen Manoj Portfolio" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Allen Manoj | Data Portfolio" />
+        <meta name="twitter:title" content="Allen Manoj" />
         <meta name="twitter:description" content="Explore Allen Manoj's portfolio showcasing dashboards, data analytics, projects, and business insights powered by Tableau, Power BI, and Machine Learning." />
-        <meta name="twitter:image" content="https://www.allenmanoj.com/forPreview.png" />
+        <meta name="twitter:image" content="/images/forPreview.png" />
       </Head>
 
       <main className={inter.className}>
