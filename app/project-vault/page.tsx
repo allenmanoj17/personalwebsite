@@ -1,4 +1,3 @@
-"// NOTE: This page does not contain any navbar logic. If a navbar is needed, it should be handled in the global layout."
 "use client";
 
 import { HiOutlineExternalLink, HiOutlinePlay } from "react-icons/hi";

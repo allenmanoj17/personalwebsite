@@ -116,7 +116,7 @@ export const Projects = () => {
         {/* View More Button */}
         <div className="text-center mt-12">
           <Link
-            href="/archived-projects"
+            href="/project-vault"
             className="inline-block px-6 py-3 bg-gray-800 text-white rounded-full hover:bg-gray-700 transition"
           >
             Project Vault →
