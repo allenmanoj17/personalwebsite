@@ -12,9 +12,10 @@ export const Achievements = () => {
       <div className="max-w-6xl mx-auto">
         {/* Heading */}
         <motion.h2
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 0 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
           className="text-center text-5xl font-bold text-gray-900 mb-14"
         >
           Achievements
@@ -24,22 +25,22 @@ export const Achievements = () => {
           {achievements.map(({ title, description, date, icon: Icon }, i) => (
             <motion.div
               key={title}
-              initial={{ opacity: 0, y: 60 }}
+              initial={{ opacity: 0, y: 35 }}
               whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
               transition={{
-                delay: i * 0.1,
-                duration: 1.2,
-                ease: "easeOut",
+                duration: 1,
+                ease: [0.22, 1, 0.36, 1]
               }}
               className={`
-                group rounded-xl border border-gray-100 bg-gray-50 
+                group rounded-xl border border-gray-100 bg-neutral-50 
                 hover:bg-white hover:shadow-lg transition 
                 cursor-pointer p-5
               `}
             >
               <div className="flex items-start gap-3 mb-3">
-                <Icon className="text-indigo-600 text-2xl flex-shrink-0 group-hover:scale-110 transition-transform duration-300" />
-                <h3 className="text-lg font-semibold text-gray-900 group-hover:text-indigo-600 transition-colors duration-300">
+                <Icon className="text-[#6366F1] text-2xl flex-shrink-0 group-hover:scale-110 transition-transform duration-300" />
+                <h3 className="text-lg font-semibold text-gray-900 group-hover:text-[#6366F1] transition-colors duration-300">
                   {title}
                 </h3>
               </div>

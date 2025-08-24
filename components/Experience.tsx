@@ -10,16 +10,16 @@ const sectionStyles: Record<
   { color: string; bg: string }
 > = {
   experience: {
-    color: "text-indigo-600",
+    color: "text-indigo-700",
     bg: "bg-indigo-50",
   },
   leadership: {
-    color: "text-green-600",
-    bg: "bg-green-50",
+    color: "text-blue-700",
+    bg: "bg-blue-50",
   },
   volunteering: {
-    color: "text-purple-600",
-    bg: "bg-purple-50",
+    color: "text-violet-700",
+    bg: "bg-violet-100",
   },
 };
 
@@ -51,13 +51,13 @@ const ExperienceSection = () => {
               whileHover={{ scale: 1.02 }}
               className={`
                 relative group cursor-pointer
-                border border-gray-200 rounded-xl p-5 transition overflow-hidden
-                bg-white hover:bg-gray-50 hover:shadow-md
+                border border-gray-100 rounded-2xl p-6 transition-all duration-300 ease-in-out
+                bg-white hover:bg-gray-50 hover:shadow-lg hover:-translate-y-1
               `}
               onClick={() => setSelected(item)}
             >
               {/* Info icon */}
-              <div className="absolute top-4 right-4 text-gray-300 hover:text-indigo-500 transition transform hover:scale-110">
+              <div className="absolute top-5 right-5 text-gray-300 hover:text-indigo-600 transition-transform duration-300 hover:scale-110">
                 <FaInfoCircle size={18} />
               </div>
 
@@ -74,7 +74,7 @@ const ExperienceSection = () => {
                   {item.skills?.slice(0, 3).map((skill) => (
                     <span
                       key={skill}
-                      className="px-2 py-1 text-xs bg-gray-100 text-gray-700 rounded-full"
+                      className="px-3 py-1 text-xs bg-gray-100 text-gray-800 rounded-full shadow-sm"
                     >
                       {skill}
                     </span>
@@ -91,7 +91,7 @@ const ExperienceSection = () => {
   return (
     <section
       id="experience"
-      className="py-20 px-4 md:px-6 bg-white"
+      className="py-28 px-4 md:px-6 bg-white"
     >
       <div className="max-w-6xl mx-auto space-y-16">
         {/* Center-aligned heading */}

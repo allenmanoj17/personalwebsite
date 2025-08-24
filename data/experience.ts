@@ -10,7 +10,19 @@ export interface ExperienceEntry {
 
 export const experienceData: ExperienceEntry[] = [
   {
-    title: "Career Support Leader Intern [Data Team]",
+    title: "Research Data Assistant",
+    role: "Data Intern",
+    period: "August 2025 – Present",
+    organization: "The University of Sydney",
+    description: [
+      "",
+      ""
+    ],
+    skills: [""],
+    type: "experience"
+  },
+  {
+    title: "Intern",
     role: "Data Intern",
     period: "April 2025 – Present",
     organization: "Careers Centre, The University of Sydney",
@@ -99,18 +111,7 @@ export const experienceData: ExperienceEntry[] = [
     type: "experience"
   },
 
-  
-  {
-    title: "Mentor",
-    role: "Mentor",
-    period: "June 2025 - July 2025",
-    organization: "Practera / Study NSW",
-    description: [
-      "Mentored 5 international students as part of a Practera program under Study NSW, guiding them through projects and professional development activities."
-    ],
-    skills: ["Mentoring", "Project Guidance", "Cross-Cultural Communication"],
-    type: "leadership"
-  },
+
   {
     title: "Co-Lead - Data Collection",
     role: "Team Co-Lead",
@@ -242,23 +243,34 @@ export const experienceData: ExperienceEntry[] = [
   },
   
 
-
   {
-    title: "Volunteer",
-    role: "Volunteer",
-    period: "April 2024 - Present",
-    organization: "University of Sydney Union (USU)",
+    title: "Mentor",
+    role: "Mentor",
+    period: "August 2025 - Present",
+    organization: "Know-I, Research Club at SVCE",
     description: [
-      "Volunteer support at events and activities organized by the University of Sydney Union."
+      ""
     ],
-    skills: ["Event Support", "Communication", "Teamwork"],
+    skills: ["Mentoring", "Research", "Personalised AI Systems", "Project Guidance"],
     type: "volunteering"
   },
+  {
+    title: "Mentor",
+    role: "Mentor",
+    period: "June 2025 - July 2025",
+    organization: "Practera / Study NSW",
+    description: [
+      "Mentored 5 international students as part of a Practera program under Study NSW, guiding them through projects and professional development activities."
+    ],
+    skills: ["Mentoring", "Project Guidance", "Cross-Cultural Communication"],
+    type: "volunteering"
+  },
+
 
   {
     title: "Peer Mentor",
     role: "Mentor",
-    period: "Semester II - 2024",
+    period: "July 2024 - November 2024",
     organization: "Faculty of Engineering, University of Sydney",
     description: [
       "Guided new engineering students through university life, providing academic and social support."

@@ -14,20 +14,19 @@ import {
 const aboutParagraph1 = (
   <>
     I’m a{" "}
-    <span className="text-indigo-600 font-semibold">data-driven</span>{" "}
-    <span className="text-indigo-600 font-semibold">problem solver</span> who enjoys crafting end-to-end solutions from{" "}
-    <span className="text-indigo-600 font-semibold">analytics pipelines</span> to intuitive{" "}
-    <span className="text-indigo-600 font-semibold">visualizations</span>. I love blending{" "}
-    <span className="text-indigo-600 font-semibold">technical skill</span> with clean, thoughtful design to transform{" "}
-    <span className="text-indigo-600 font-semibold">data</span> into decisions.
+    <span className="text-[#6366F1] font-semibold">data-driven</span>{" "}
+    <span className="text-[#6366F1] font-semibold">problem solver</span> who enjoys crafting end-to-end solutions from{" "}
+    <span className="text-[#6366F1] font-semibold">analytics pipelines</span> to {" "}
+    <span className="text-[#6366F1] font-semibold">intuitive visualizations</span>. I love blending{" "}
+    <span className="text-[#6366F1] font-semibold">technical skill</span> with clean, thoughtful design to transform data into decisions.
   </>
 );
 const aboutParagraph2 = (
   <>
     Outside of coding, I’m passionate about{" "}
-    <span className="text-indigo-600 font-semibold">visual storytelling</span>, simplifying complexity, and helping teams communicate{" "}
-    <span className="text-indigo-600 font-semibold">insights</span> clearly. I believe{" "}
-    <span className="text-indigo-600 font-semibold">data</span> isn’t just numbers, it’s a language that can inform, influence, and inspire.
+    <span className="text-[#6366F1] font-semibold">visual storytelling</span>, simplifying complexity, and helping teams communicate{" "}
+    <span className="text-[#6366F1] font-semibold">insights</span> clearly. I believe data isn’t just numbers, it’s a language that can{" "}
+    <span className="text-[#6366F1] font-semibold">inform, influence, and inspire</span>.
   </>
 );
 
@@ -36,7 +35,7 @@ const coreCompetencies = [
   "Strategic Planning",
   "Leadership",
   "Analytical Thinking",
-  "Effective Communication",
+  "Problem Solving",
 ];
 
 const skillGroups = [
@@ -62,12 +61,12 @@ const skillGroups = [
     skills: [
       "Pandas",
       "NumPy",
+      "Matplotlib",
+      "Seaborn",
       "scikit-learn",
       "TensorFlow",
       "Keras",
       "CNNs",
-      "Matplotlib",
-      "Seaborn",
     ],
   },
   {
@@ -119,7 +118,7 @@ const education = [
 
 export const About = () => {
   return (
-    <section id="about" className="py-10 px-6 sm:px-8 lg:px-12 bg-white">
+    <section id="about" className="py-28 px-6 sm:px-8 lg:px-12 bg-white">
       <div className="max-w-5xl mx-auto space-y-16">
         {/* Title */}
         <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 text-center">
@@ -168,7 +167,7 @@ export const About = () => {
 
         {/* Skills Title */}
         <h3 className="text-2xl font-bold text-gray-900 flex items-center gap-2">
-          <FaLightbulb className="text-indigo-600" /> Skills
+          <FaLightbulb className="text-[#6366F1]" /> Skills
         </h3>
 
         {/* Skills Grid */}
@@ -181,10 +180,10 @@ export const About = () => {
           {skillGroups.map((group) => (
             <div
               key={group.title}
-              className="bg-gray-50 border border-gray-100 rounded-xl p-6 shadow hover:shadow-md transition"
+              className="bg-neutral-50 border border-gray-100 rounded-xl p-6 shadow hover:shadow-md transition"
             >
               <div className="flex items-center gap-3 mb-4">
-                <group.icon className="text-indigo-600 text-xl" />
+                <group.icon className="text-[#6366F1] text-xl" />
                 <h3 className="text-lg font-bold text-gray-900">
                   {group.title}
                 </h3>
@@ -211,19 +210,19 @@ export const About = () => {
           className="space-y-8 mt-16"
         >
           <h3 className="text-2xl font-bold text-gray-900 flex items-center gap-2">
-            <FaUniversity className="text-indigo-600" /> Education
+            <FaUniversity className="text-[#6366F1]" /> Education
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {education.map((edu, idx) => (
               <div
                 key={idx}
-                className="bg-gray-50 border border-gray-100 rounded-xl p-6 shadow hover:shadow-md transition"
+                className="bg-neutral-50 border border-gray-100 rounded-xl p-6 shadow hover:shadow-md transition"
               >
                 <h4 className="text-lg font-bold text-gray-900 mb-1">
                   {edu.degree}
                 </h4>
                 {edu.specialization && (
-                  <p className="text-indigo-600 text-sm font-medium mb-2">
+                  <p className="text-[#6366F1] text-sm font-medium mb-2">
                     {edu.specialization}
                   </p>
                 )}
