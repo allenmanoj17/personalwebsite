@@ -5,6 +5,7 @@ export type Project = {
   tech: string[];
   archived?: boolean;
   twoLiner: string;
+  github?: string,
 };
 
 export const projects: Project[] = [

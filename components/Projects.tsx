@@ -69,7 +69,7 @@ export const Projects = () => {
           whileInView="show"
           viewport={{ once: true, amount: 0.35 }}
         >
-          {featuredProjects.map((project, i) => (
+          {featuredProjects.map((project: Project) => (
             <motion.article
               key={project.title}
               variants={cardVariants}
@@ -95,7 +95,7 @@ export const Projects = () => {
               </div>
 
               <p className="text-gray-600 text-sm mb-4 line-clamp-2">
-                {(project as any).twoLiner ?? project.description}
+                {"twoLiner" in project && project.twoLiner ? project.twoLiner : project.description}
               </p>
 
               <motion.div className="flex flex-wrap gap-2" variants={tagContainerVariants}>

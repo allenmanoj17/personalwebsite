@@ -22,7 +22,7 @@ export const Achievements = () => {
         </motion.h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {achievements.map(({ title, description, date, icon: Icon }, i) => (
+          {achievements.map(({ title, description, date, icon: Icon }) => (
             <motion.div
               key={title}
               initial={{ opacity: 0, y: 35 }}
