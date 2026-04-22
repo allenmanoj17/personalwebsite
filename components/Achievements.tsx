@@ -10,7 +10,6 @@ export const Achievements = () => {
       className="relative py-20 px-4 bg-white overflow-hidden"
     >
       <div className="max-w-6xl mx-auto">
-        {/* Heading */}
         <motion.h2
           initial={{ opacity: 0, y: 0 }}
           whileInView={{ opacity: 1, y: 0 }}

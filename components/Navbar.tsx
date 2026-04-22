@@ -21,7 +21,6 @@ export const Navbar = () => {
     []
   );
 
-  // Scroll state
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 10);
     handleScroll();
@@ -29,7 +28,6 @@ export const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Lock body scroll when menu is open
   useEffect(() => {
     const original = document.body.style.overflow;
     if (menuOpen) document.body.style.overflow = "hidden";
@@ -39,7 +37,6 @@ export const Navbar = () => {
     };
   }, [menuOpen]);
 
-  // Close with Escape
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") setMenuOpen(false);
@@ -48,7 +45,6 @@ export const Navbar = () => {
     return () => window.removeEventListener("keydown", onKey);
   }, []);
 
-  // Active section highlighting (IntersectionObserver)
   useEffect(() => {
     const ids = navItems.map((n) => n.href.replace("#", ""));
     const sections = ids
@@ -85,7 +81,6 @@ export const Navbar = () => {
         role="navigation"
         aria-label="Main"
       >
-        {/* Logo (shown after scroll) */}
         <Link
           href="/"
           className={clsx(
@@ -96,7 +91,6 @@ export const Navbar = () => {
           Allen Manoj
         </Link>
 
-        {/* Desktop Menu */}
         <ul className="hidden items-center space-x-6 md:flex">
           {navItems.map(({ label, href }) => {
             const id = href.slice(1);
@@ -121,7 +115,6 @@ export const Navbar = () => {
           })}
         </ul>
 
-        {/* Hamburger */}
         <button
           type="button"
           className={clsx(
@@ -150,7 +143,6 @@ export const Navbar = () => {
         </button>
       </nav>
 
-      {/* Mobile Dropdown */}
       <div
         id="mobile-menu"
         className={clsx(

@@ -1,6 +1,5 @@
 // pages/index.tsx
 import Head from "next/head";
-import { Inter } from "next/font/google";
 import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
 import { Hero } from "../components/Hero";
@@ -11,8 +10,6 @@ import Projects from "@/components/Projects";
 import { Achievements } from "../components/Achievements";
 import { BlogPreview } from "../components/BlogPreview";
 import { Contact } from "../components/Contact";
-
-const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   return (
@@ -44,7 +41,7 @@ export default function Home() {
         <meta name="twitter:image" content="/images/forPreview.png" />
       </Head>
 
-      <main className={inter.className}>
+      <main>
         <Navbar />
         <Hero />
         <About />

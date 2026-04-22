@@ -5,10 +5,14 @@ import Link from 'next/link';
 import { FaGithub, FaLinkedin, FaEnvelope, FaMedium, FaYoutube } from "react-icons/fa";
 import { SiX } from "react-icons/si";
 import { motion } from "framer-motion";
-import * as THREE from "three";
 import { Typewriter } from "react-simple-typewriter";
 
-const initThree = (canvas: HTMLCanvasElement) => {
+type ThreeModule = typeof import("three");
+type ThreeVector3 = import("three").Vector3;
+type ThreeColor = import("three").Color;
+type ThreeMesh = import("three").Mesh;
+
+const initThree = (THREE: ThreeModule, canvas: HTMLCanvasElement) => {
   const scene = new THREE.Scene();
   const camera = new THREE.PerspectiveCamera(
     75,
@@ -30,7 +34,7 @@ const initThree = (canvas: HTMLCanvasElement) => {
 
   const neuronColor = new THREE.Color("#6366F1");
 
-  const createNeuron = (pos: THREE.Vector3, color: THREE.Color) => {
+  const createNeuron = (pos: ThreeVector3, color: ThreeColor) => {
     const geometry = new THREE.SphereGeometry(0.15, 16, 16);
     const material = new THREE.MeshBasicMaterial({
       color,
@@ -44,8 +48,8 @@ const initThree = (canvas: HTMLCanvasElement) => {
   };
 
   const layersX = [-2, 0, 2, 4];
-  const neurons: THREE.Mesh[] = [];
-  const connections: { start: THREE.Vector3; end: THREE.Vector3 }[] = [];
+  const neurons: ThreeMesh[] = [];
+  const connections: { start: ThreeVector3; end: ThreeVector3 }[] = [];
 
   layersX.forEach((x, i) => {
     const numNeurons = i === 1 ? 6 : i === 3 ? 2 : 4;
@@ -80,9 +84,9 @@ const initThree = (canvas: HTMLCanvasElement) => {
   }
 
   const signals: {
-    mesh: THREE.Mesh;
-    start: THREE.Vector3;
-    end: THREE.Vector3;
+    mesh: ThreeMesh;
+    start: ThreeVector3;
+    end: ThreeVector3;
     progress: number;
     speed: number;
   }[] = [];
@@ -149,6 +153,27 @@ const initThree = (canvas: HTMLCanvasElement) => {
   return () => {
     window.removeEventListener("resize", handleResize);
     cancelAnimationFrame(animationFrameId);
+    scene.traverse((object) => {
+      if (object instanceof THREE.Mesh) {
+        object.geometry.dispose();
+
+        if (Array.isArray(object.material)) {
+          object.material.forEach((material) => material.dispose());
+        } else {
+          object.material.dispose();
+        }
+      }
+
+      if (object instanceof THREE.Line) {
+        object.geometry.dispose();
+
+        if (Array.isArray(object.material)) {
+          object.material.forEach((material) => material.dispose());
+        } else {
+          object.material.dispose();
+        }
+      }
+    });
     renderer.dispose();
   };
 };
@@ -159,15 +184,30 @@ export const Hero = () => {
   useEffect(() => {
     const canvas = canvasRefDesktop.current;
     if (!canvas) return;
-    const cleanup = initThree(canvas);
+
+    let cleanup: (() => void) | undefined;
+    let cancelled = false;
+
+    const loadThree = async () => {
+      const THREE = await import("three");
+
+      if (cancelled) {
+        return;
+      }
+
+      cleanup = initThree(THREE, canvas);
+    };
+
+    loadThree();
+
     return () => {
-      cleanup();
+      cancelled = true;
+      cleanup?.();
     };
   }, []);
 
   return (
     <section className="relative min-h-screen flex flex-col md:flex-row items-center justify-center gap-8 md:gap-12 px-4 md:px-24 py-10 md:py-20 bg-white overflow-hidden">
-      {/* Background grid */}
       <svg
         className="absolute inset-0 w-full h-full opacity-10"
         xmlns="http://www.w3.org/2000/svg"
@@ -259,27 +299,22 @@ export const Hero = () => {
             href="/#about"
             className="inline-flex items-center justify-center gap-2 px-4 py-3 bg-[#6366F1] text-white font-semibold rounded-md shadow hover:bg-[#4F46E5] transition duration-300 text-base max-w-max"
           >
-            Know more about me
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth="1.5"
-              stroke="currentColor"
-              className="w-5 h-5"
-            >
-              <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-            </svg>
+            Explore My Work
           </Link>
         </div>
       </motion.div>
 
-      {/* Desktop neural network canvas */}
-      <div className="hidden md:flex md:flex-1 justify-center">
-        <canvas ref={canvasRefDesktop} className="w-[600px] h-[600px]" />
-      </div>
+      <motion.div
+        className="w-full md:w-1/2 h-[260px] sm:h-[320px] md:h-[450px] relative z-10"
+        initial={{ opacity: 0, scale: 0.95 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 1.2 }}
+      >
+        <canvas
+          ref={canvasRefDesktop}
+          className="w-full h-full"
+        />
+      </motion.div>
     </section>
   );
 };
-
-export default Hero;

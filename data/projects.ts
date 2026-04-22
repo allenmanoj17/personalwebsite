@@ -34,7 +34,6 @@ export const projects: Project[] = [
       "Python",
     ],
     archived: false,
-    link: "", 
     twoLiner: "Launched a scalable Flask web app on AWS, integrating serverless architecture for automated image captioning.",
   },
   {

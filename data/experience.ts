@@ -3,7 +3,7 @@ export interface ExperienceEntry {
   role: string;
   period: string;
   organization: string;
-  description: string[];
+  description?: string[];
   type: "experience" | "leadership" | "volunteering";
   skills?: string[];
 }
@@ -12,13 +12,8 @@ export const experienceData: ExperienceEntry[] = [
   {
     title: "Research Data Assistant",
     role: "Data Intern",
-    period: "August 2025 – Present",
+    period: "August 2025 – February 2026",
     organization: "The University of Sydney",
-    description: [
-      "",
-      ""
-    ],
-    skills: [""],
     type: "experience"
   },
   {
@@ -248,9 +243,6 @@ export const experienceData: ExperienceEntry[] = [
     role: "Mentor",
     period: "August 2025 - Present",
     organization: "Know-I, Research Club at SVCE",
-    description: [
-      ""
-    ],
     skills: ["Mentoring", "Research", "Personalised AI Systems", "Project Guidance"],
     type: "volunteering"
   },

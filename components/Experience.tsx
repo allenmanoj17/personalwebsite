@@ -26,6 +26,11 @@ const sectionStyles: Record<
 const ExperienceSection = () => {
   const [selected, setSelected] = useState<ExperienceEntry | null>(null);
 
+  const getNonEmptyItems = (items?: string[]) =>
+    (items ?? []).map((item) => item.trim()).filter(Boolean);
+  const selectedDescription = getNonEmptyItems(selected?.description);
+  const selectedSkills = getNonEmptyItems(selected?.skills);
+
   const grouped: Record<ExperienceEntry["type"], ExperienceEntry[]> = {
     experience: experienceData.filter((item) => item.type === "experience"),
     leadership: experienceData.filter((item) => item.type === "leadership"),
@@ -45,44 +50,49 @@ const ExperienceSection = () => {
           {title}
         </h3>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {items.map((item) => (
-            <motion.div
-              key={item.title}
-              whileHover={{ scale: 1.02 }}
-              className={`
+          {items.map((item) => {
+            const previewSkills = getNonEmptyItems(item.skills).slice(0, 3);
+
+            return (
+              <motion.div
+                key={item.title}
+                whileHover={{ scale: 1.02 }}
+                className={`
                 relative group cursor-pointer
                 border border-gray-100 rounded-2xl p-6 transition-all duration-300 ease-in-out
                 bg-white hover:bg-gray-50 hover:shadow-lg hover:-translate-y-1
               `}
-              onClick={() => setSelected(item)}
-            >
-              {/* Info icon */}
-              <div className="absolute top-5 right-5 text-gray-300 hover:text-indigo-600 transition-transform duration-300 hover:scale-110">
-                <FaInfoCircle size={18} />
-              </div>
+                onClick={() => setSelected(item)}
+              >
+                <div className="absolute top-5 right-5 text-gray-300 hover:text-indigo-600 transition-transform duration-300 hover:scale-110">
+                  <FaInfoCircle size={18} />
+                </div>
 
-              <div className="pr-8">
-                <h4 className="text-lg font-bold text-gray-900 mb-2">
-                  {item.title}
-                </h4>
-                <p className="text-sm text-gray-600 mb-2">{item.organization}</p>
-                <div className="text-xs text-gray-400 flex items-center gap-2 mb-3">
-                  <FaCalendarAlt className="text-gray-400" />
-                  {item.period}
+                <div className="pr-8">
+                  <h4 className="text-lg font-bold text-gray-900 mb-2">
+                    {item.title}
+                  </h4>
+                  <p className="text-sm text-gray-600 mb-2">{item.organization}</p>
+                  <div className="text-xs text-gray-400 flex items-center gap-2 mb-3">
+                    <FaCalendarAlt className="text-gray-400" />
+                    {item.period}
+                  </div>
+                  {previewSkills.length > 0 && (
+                    <div className="flex flex-wrap gap-2">
+                      {previewSkills.map((skill) => (
+                        <span
+                          key={skill}
+                          className="px-3 py-1 text-xs bg-gray-100 text-gray-800 rounded-full shadow-sm"
+                        >
+                          {skill}
+                        </span>
+                      ))}
+                    </div>
+                  )}
                 </div>
-                <div className="flex flex-wrap gap-2">
-                  {item.skills?.slice(0, 3).map((skill) => (
-                    <span
-                      key={skill}
-                      className="px-3 py-1 text-xs bg-gray-100 text-gray-800 rounded-full shadow-sm"
-                    >
-                      {skill}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     );
@@ -93,29 +103,9 @@ const ExperienceSection = () => {
       id="experience"
       className="py-28 px-4 md:px-6 bg-white"
     >
-      <div className="max-w-6xl mx-auto space-y-16">
-        {/* Center-aligned heading */}
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="text-4xl font-extrabold text-center text-gray-900"
-        >
-          Experience & Leadership
-        </motion.h2>
-
-        <div className="space-y-12">
-          {renderGroup("Professional Experience", "experience", grouped.experience)}
-          {renderGroup("Leadership", "leadership", grouped.leadership)}
-          {renderGroup("Volunteering", "volunteering", grouped.volunteering)}
-        </div>
-      </div>
-
-      {/* Modal */}
       <AnimatePresence>
         {selected && (
           <>
-            {/* Backdrop */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 0.5 }}
@@ -124,7 +114,6 @@ const ExperienceSection = () => {
               onClick={() => setSelected(null)}
             ></motion.div>
 
-            {/* Modal content */}
             <motion.div
               initial={{ opacity: 0, y: 50, scale: 0.95 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -164,26 +153,28 @@ const ExperienceSection = () => {
                 <FaCalendarAlt className="text-gray-400" />
                 {selected.period}
               </motion.p>
-              <motion.ul
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.5 }}
-                className="list-disc list-inside space-y-2 text-gray-700 text-sm mb-6 text-left"
-              >
-                {selected.description.map((line, idx) => (
-                  <li key={idx}>{line}</li>
-                ))}
-              </motion.ul>
-              {selected.skills && (
+              {selectedDescription.length > 0 && (
+                <motion.ul
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.5 }}
+                  className="list-disc list-inside space-y-2 text-gray-700 text-sm mb-6 text-left"
+                >
+                  {selectedDescription.map((line) => (
+                    <li key={line}>{line}</li>
+                  ))}
+                </motion.ul>
+              )}
+              {selectedSkills.length > 0 && (
                 <motion.div
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.6 }}
                   className="flex flex-wrap gap-2"
                 >
-                  {selected.skills.map((skill, idx) => (
+                  {selectedSkills.map((skill) => (
                     <span
-                      key={idx}
+                      key={skill}
                       className="px-3 py-1 text-xs bg-gray-100 text-gray-700 rounded-full"
                     >
                       {skill}
@@ -195,6 +186,23 @@ const ExperienceSection = () => {
           </>
         )}
       </AnimatePresence>
+
+      <div className="max-w-6xl mx-auto space-y-16">
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="text-4xl font-extrabold text-center text-gray-900"
+        >
+          Experience & Leadership
+        </motion.h2>
+
+        <div className="space-y-12">
+          {renderGroup("Professional Experience", "experience", grouped.experience)}
+          {renderGroup("Leadership", "leadership", grouped.leadership)}
+          {renderGroup("Volunteering", "volunteering", grouped.volunteering)}
+        </div>
+      </div>
     </section>
   );
 };

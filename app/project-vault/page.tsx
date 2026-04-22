@@ -2,16 +2,9 @@
 
 import { HiOutlineExternalLink, HiOutlinePlay } from "react-icons/hi";
 import Link from "next/link";
-import { projects as rawProjects } from "@/data/projects";
-
-// ---- Types ----
-type Project = {
-  id?: string | number;
-  title: string;
-  description: string;
-  tech: string[];
-  link?: string;
-};
+import { projects as rawProjects, type Project as DataProject } from "@/data/projects";
+import { Navbar } from "@/components/Navbar";
+import { Footer } from "@/components/Footer";
 
 const sentenceSplit = (text: string): string[] => {
   // Split on sentence boundaries and keep punctuation.
@@ -31,10 +24,13 @@ const normalizeLink = (url?: string) => {
 };
 
 export default function ArchivedProjectsPage() {
-  const projects: Project[] = Array.isArray(rawProjects) ? (rawProjects as Project[]) : [];
+  const projects: DataProject[] = Array.isArray(rawProjects)
+    ? rawProjects.filter((project) => project.archived)
+    : [];
 
   return (
     <>
+      <Navbar />
       <section className="relative min-h-screen bg-gradient-to-b from-slate-50 to-white px-6 py-28 pt-28 md:pt-32">
         <div
           aria-hidden="true"
@@ -72,7 +68,7 @@ export default function ArchivedProjectsPage() {
           >
             {projects.map((project, i) => {
               const sentences = sentenceSplit(project.description || "");
-              const key = project.id ?? `${project.title}-${i}`;
+              const key = `${project.title}-${i}`;
 
               return (
                 <article
@@ -172,6 +168,7 @@ export default function ArchivedProjectsPage() {
         )}
       </div>
       </section>
+      <Footer />
     </>
   );
 }

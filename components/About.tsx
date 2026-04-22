@@ -10,7 +10,6 @@ import {
   FaLightbulb,
 } from "react-icons/fa";
 
-// Split aboutParagraph into two parts and highlight important words
 const aboutParagraph1 = (
   <>
     I’m a{" "}
@@ -120,22 +119,19 @@ export const About = () => {
   return (
     <section id="about" className="py-28 px-6 sm:px-8 lg:px-12 bg-white">
       <div className="max-w-5xl mx-auto space-y-16">
-        {/* Title */}
         <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 text-center">
           About Me
         </h2>
 
-        {/* About Block */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           className="flex flex-col md:flex-row md:items-center md:justify-center gap-6 md:gap-10"
         >
-          {/* Image */}
           <div className="flex-shrink-0 w-64 h-64 md:w-72 md:h-72 rounded-full overflow-hidden border border-gray-200 shadow-lg mx-auto md:mx-0 md:-translate-x-6">
             <Image
-              src="/images/allen.JPG"
+              src="/images/allen.jpg"
               alt="Allen Manoj"
               width={340}
               height={340}
@@ -143,7 +139,6 @@ export const About = () => {
             />
           </div>
 
-          {/* Text */}
           <div className="flex-1 space-y-4 max-w-xl">
             <p className="text-gray-700 text-sm md:text-base leading-relaxed text-justify">
               {aboutParagraph1}
@@ -151,7 +146,6 @@ export const About = () => {
             <p className="text-gray-700 text-sm md:text-base leading-relaxed text-justify">
               {aboutParagraph2}
             </p>
-            {/* Tags */}
             <div className="flex flex-wrap gap-2">
               {coreCompetencies.map((skill) => (
                 <span
@@ -165,12 +159,10 @@ export const About = () => {
           </div>
         </motion.div>
 
-        {/* Skills Title */}
         <h3 className="text-2xl font-bold text-gray-900 flex items-center gap-2">
           <FaLightbulb className="text-[#6366F1]" /> Skills
         </h3>
 
-        {/* Skills Grid */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -202,7 +194,6 @@ export const About = () => {
           ))}
         </motion.div>
 
-        {/* Education Section */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

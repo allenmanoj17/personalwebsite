@@ -50,7 +50,6 @@ export const Projects = () => {
       className="relative py-28 px-6 bg-white overflow-hidden"
     >
       <div className="max-w-6xl mx-auto">
-        {/* Heading */}
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -61,7 +60,6 @@ export const Projects = () => {
           Featured Projects
         </motion.h2>
 
-        {/* Project Grid */}
         <motion.div
           className="grid grid-cols-1 md:grid-cols-2 gap-10"
           variants={gridVariants}
@@ -113,7 +111,6 @@ export const Projects = () => {
           ))}
         </motion.div>
 
-        {/* View More Button */}
         <div className="text-center mt-12">
           <Link
             href="/project-vault"
@@ -124,11 +121,9 @@ export const Projects = () => {
         </div>
       </div>
 
-      {/* Modal for selected project */}
       <AnimatePresence>
         {selected && (
           <>
-            {/* Backdrop */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 0.5 }}
@@ -138,7 +133,6 @@ export const Projects = () => {
               onClick={() => setSelected(null)}
             ></motion.div>
 
-            {/* Modal content */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}

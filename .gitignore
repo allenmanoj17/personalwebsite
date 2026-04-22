@@ -51,6 +51,5 @@ dist/
 *.local
 
 # lockfiles you don’t use
-package-lock.json
 yarn.lock
 pnpm-lock.yaml
